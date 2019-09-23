@@ -8,7 +8,7 @@ import { StatusMonitoringService } from './status.monitoring.service';
 import { Inject, forwardRef } from '@nestjs/common';
 
 const port = process.env.STATUS_MONITOR_WS_PORT ? parseInt(process.env.STATUS_MONITOR_WS_PORT) : 0;
-const namespace = process.env.STATUS_MONITOR_WS_NAMESPACE || '';
+const namespace = process.env.STATUS_MONITOR_WS_NAMESPACE || null;
 
 @WebSocketGateway(port, { namespace })
 export class StatusMonitorGateway implements OnGatewayConnection {
